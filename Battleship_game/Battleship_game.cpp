@@ -7,5 +7,4 @@ int main()
 	Battleship A;
 	A.placingShips();
 	A.hittingTarget();
-	A.printMap();
 }
