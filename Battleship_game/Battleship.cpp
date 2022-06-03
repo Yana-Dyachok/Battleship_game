@@ -42,10 +42,12 @@ void Battleship::hittingTarget() {
     std::cout << "Enter coordinates x and y:" << endl;
     cin >> x;
     cin >> y;
-    if ((x > 10 or x < 1) or (y > 10 or y < 1)){
-        cout << "Wrong coordinates, try again: ";
-            cin >> x;
-            cin >> y;
+   if ((this->x > 10 or this->x < 1) or (this->y > 10 or this->y < 1)) {
+        do {
+            cout << "Wrong coordinates, try again: ";
+            cin >> this->x;
+            cin >> this->y;
+        } while ((x > 10 or x < 1) or (y > 10 or y < 1));
     }
     if (this->map[this->x - 1][this->y - 1] == 'A') {
         cout << "You hit the target" << endl;
@@ -61,15 +63,15 @@ void Battleship::hittingTarget() {
 
 void Battleship::hittingTargetEnemy() {
     std::cout << "Enemy step:" << endl;
-    x = rand() % n + 1;
-    y = rand() % n + 1;
-    if (this->map[this->x - 1][this->y - 1] == 'A') {
+    this->x = rand() % n;
+    this->y = rand() % n;
+    if (this->map[this->x][this->y] == 'A') {
         cout << "Enemy hit the target" << endl;
-        this->map[this->x - 1][this->y - 1] = '#';
+        this->map[this->x][this->y] = '#';
         sum--;
     }
     else {
-        this->map[this->x - 1][this->y - 1] = '*';
+        this->map[this->x][this->y] = '*';
         cout << "Enemy missed" << endl;
     }
 }
