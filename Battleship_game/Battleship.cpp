@@ -2,6 +2,7 @@
 #include <iostream>
 #include <ctime>
 #include <conio.h>
+#include <Windows.h>
 using namespace std;
 Battleship::Battleship() {
     this->x = 0;
@@ -40,9 +41,9 @@ Battleship::Battleship() {
 
 void Battleship::hittingTarget() {
     std::cout << "Enter coordinates x and y:" << endl;
-    cin >> x;
-    cin >> y;
-   if ((this->x > 10 or this->x < 1) or (this->y > 10 or this->y < 1)) {
+    cin >> this->x;
+    cin >> this->y;
+    if ((this->x > 10 or this->x < 1) or (this->y > 10 or this->y < 1)) {
         do {
             cout << "Wrong coordinates, try again: ";
             cin >> this->x;
@@ -58,6 +59,7 @@ void Battleship::hittingTarget() {
         this->mapE[this->x - 1][this->y - 1] = '*';
         cout << "You missed" << endl;
     }
+    Sleep(500);
 }
 
 
